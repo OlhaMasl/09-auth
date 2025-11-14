@@ -1,4 +1,4 @@
-import css from '@/app/notes/filter/@sidebar/SidebarNotes.module.css'
+import css from './SidebarNotes.module.css';
 
 const SidebarNotes = async () => {
     return (
@@ -33,6 +33,32 @@ const SidebarNotes = async () => {
                     Shopping
                 </a>
             </li>
+            <li className={css.menuItem}>
+                <a href={`/notes/filter/Ideas`} className={css.menuLink}>
+                    Ideas
+                </a>
+            </li>
+            <li className={css.menuItem}>
+                <a href={`/notes/filter/Travel`} className={css.menuLink}>
+                    Travel
+                </a>
+            </li>
+            <li className={css.menuItem}>
+                <a href={`/notes/filter/Health`} className={css.menuLink}>
+                    Health
+                </a>
+            </li>
+            <li className={css.menuItem}>
+                <a href={`/notes/filter/Finance`} className={css.menuLink}>
+                    Finance
+                </a>
+            </li>
+            <li className={css.menuItem}>
+                <a href={`/notes/filter/Important`} className={css.menuLink}>
+                    Important
+                </a>
+            </li>
+
         </ul>);
 };
 
