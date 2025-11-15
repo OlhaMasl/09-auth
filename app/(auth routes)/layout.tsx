@@ -18,4 +18,4 @@ export default function PublicLayout({ children }: Props) {
   }, [router]);
 
   return <>{loading ? <div>Loading...</div> : children}</>;
-};
+}
