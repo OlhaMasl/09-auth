@@ -2,6 +2,7 @@ import css from './ProfilePage.module.css';
 import type { Metadata } from "next";
 import Link from 'next/link';
 import { getMe } from '@/lib/api/serverApi';
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "NoteHub",
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
       title: "NoteHub",
       description: "NoteHub is a simple and efficient application designed for managing personal notes",
-      url: "https://08-zustand-sandy-six.vercel.app",
+      url: "https://09-auth-rho-five.vercel.app/",
       siteName: 'NoteHub',
       images: [
         {
@@ -36,7 +37,7 @@ const Profile = async () => {
 	     </Link>
 	   </div>
      <div className={css.avatarWrapper}>
-      <img
+      <Image
         src={user.avatar}
         alt="User Avatar"
         width={120}

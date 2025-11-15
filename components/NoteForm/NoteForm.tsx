@@ -16,15 +16,15 @@ const NoteForm = () => {
 
     const { draft, setDraft, clearDraft } = useNoteDraftStore();
     const handleChange = (
-    event: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >,
-  ) => {
-    setDraft({
-      ...draft,
-      [event.target.name]: event.target.value,
-    });
-  };
+        event: React.ChangeEvent<
+            HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+        >,
+    ) => {
+        setDraft({
+            ...draft,
+            [event.target.name]: event.target.value,
+        });
+    };
 
     const queryClient = useQueryClient();
 
@@ -37,57 +37,62 @@ const NoteForm = () => {
         },
     });
 
-     const handleSubmit = (formData: FormData) => {
-    const values = Object.fromEntries(formData) as unknown as NewNote;
-    mutate(values);
-     };
+    const handleSubmit = (formData: FormData) => {
+        const values = Object.fromEntries(formData) as unknown as NewNote;
+        mutate(values);
+    };
     
     const handleCancel = () => router.push('/notes/filter/all');
 
     return (
         
-            <form className={css.form} action={handleSubmit}>
-                <div className={css.formGroup}>
-                    <label htmlFor={`${fieldId}-title`}>Title</label>
-                    <input id={`${fieldId}-title`} type="text" name="title" className={css.input} defaultValue={draft?.title} onChange={handleChange}/>
-                </div>
+        <form className={css.form} action={handleSubmit}>
+            <div className={css.formGroup}>
+                <label htmlFor={`${fieldId}-title`}>Title</label>
+                <input id={`${fieldId}-title`} type="text" name="title" className={css.input} defaultValue={draft?.title} onChange={handleChange} />
+            </div>
 
-                <div className={css.formGroup}>
-                    <label htmlFor={`${fieldId}-content`}>Content</label>
-                    <textarea
-                        id={`${fieldId}-content`}
-                        name="content"
-                        rows={8}
+            <div className={css.formGroup}>
+                <label htmlFor={`${fieldId}-content`}>Content</label>
+                <textarea
+                    id={`${fieldId}-content`}
+                    name="content"
+                    rows={8}
                     className={css.textarea}
                     defaultValue={draft?.content}
                     onChange={handleChange}
-                    ></textarea>
-                </div>
+                ></textarea>
+            </div>
 
-                <div className={css.formGroup}>
-                    <label htmlFor={`${fieldId}-tag`}>Tag</label>
-                    <select id={`${fieldId}-tag`} name="tag" className={css.select} defaultValue={draft?.tag} onChange={handleChange}>
-                        <option value="Todo">Todo</option>
-                        <option value="Work">Work</option>
-                        <option value="Personal">Personal</option>
-                        <option value="Meeting">Meeting</option>
-                        <option value="Shopping">Shopping</option>
-                    </select>
-                </div>
+            <div className={css.formGroup}>
+                <label htmlFor={`${fieldId}-tag`}>Tag</label>
+                <select id={`${fieldId}-tag`} name="tag" className={css.select} defaultValue={draft?.tag} onChange={handleChange}>
+                    <option value="Todo">Todo</option>
+                    <option value="Work">Work</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Meeting">Meeting</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Ideas">Ideas</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Health">Health</option>
+                    <option value="Important">Important</option>
+                </select>
+            </div>
 
-                <div className={css.actions}>
-                    <button type="button" className={css.cancelButton} onClick={handleCancel}>
-                        Cancel
-                    </button>
-                    <button
-                        type="submit"
-                        className={css.submitButton}
-                        disabled={isPending ? true : false} 
-                    >
-                        Create note
-                    </button>
-                </div>
-            </form>
+            <div className={css.actions}>
+                <button type="button" className={css.cancelButton} onClick={handleCancel}>
+                    Cancel
+                </button>
+                <button
+                    type="submit"
+                    className={css.submitButton}
+                    disabled={isPending ? true : false}
+                >
+                    Create note
+                </button>
+            </div>
+        </form>
         
     )
 };

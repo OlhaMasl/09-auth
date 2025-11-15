@@ -17,7 +17,6 @@ interface NotesClientProps {
 const NotesClient = ({ tag }: NotesClientProps) => {
   const [searchValue, setSearchValue] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  // const [isModalOpen, setIsModalOpen] = useState(false);
 
   const { data } = useQuery({
     queryKey: ['notes', searchValue, currentPage, tag,],
